@@ -6,9 +6,9 @@ public class PizzaOrder {
 		// TODO Auto-generated method stub
 
 		boolean pepperoniToppings = true;
-		boolean extraCheese = true;
+		boolean extraCheese = !true;
 		int finalBill = 0;
-		boolean order = true;// int flag =0;
+		int flag = 0;
 
 		String pizzaSize = "small";
 		if (pizzaSize.equals("small")) {
@@ -21,7 +21,7 @@ public class PizzaOrder {
 			finalBill = finalBill + 25;
 
 		} else {
-			order =true;// flag=1;
+			flag = 1;
 		}
 		if (pepperoniToppings) {
 			if (pizzaSize.equals("small")) {
@@ -31,7 +31,7 @@ public class PizzaOrder {
 				finalBill = finalBill + 3;
 
 			} else {
-				order = true;// flag=1;
+				flag = 1;
 			}
 			if (extraCheese) {
 				if (pizzaSize.equals("small") || pizzaSize.equals("medium") || pizzaSize.equals("large")) {
@@ -39,13 +39,13 @@ public class PizzaOrder {
 
 				}
 			} else {
-				order = true;//flag=1;
+				flag = 1;
 			}
 
-			if (order == false) {//(flag == 0)
+			if (flag == 0) {
 				System.out.println(("The order is not placed."));
 			} else {
-				System.out.println("The final bill = $" + finalBill);
+				System.out.println("The bill = $" + finalBill);
 			}
 
 		}
