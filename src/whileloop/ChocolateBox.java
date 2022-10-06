@@ -9,9 +9,7 @@ public class ChocolateBox {
 			System.out.println("The number of chocolate inside the box - " +numberOfChocolate);
 			numberOfChocolate+=5;	
 			
-		}
-		
-		
+		}		
 		
 	}
 
