@@ -18,19 +18,19 @@ public class DriversLicense {
 //		else {
 //			System.out.println("The license is not issued");
 //		}
-		int agePerson = 15;
+		int agePerson = 16;
 
-		String theCurrentLevel = "G";
-		if ((agePerson >= 16) && (theCurrentLevel == "No license")) {
+		String theCurrentLevel = "G2";
+		if (agePerson >= 16) {
+			if (theCurrentLevel == "No license") {
 
-			System.out.println("G1 license is issued");
+				System.out.println("G1 license is issued");
 
-		} else if ((agePerson >= 16) && (theCurrentLevel == "No license")) {
-			System.out.println("G2 license is issued");
-		} else if ((agePerson >= 16) && (theCurrentLevel == "G2")) {
-			System.out.println("G license is issued");
-		} else if ((agePerson >= 16) && (theCurrentLevel == "G")) {
-			System.out.println("Highest level");
+			} else if (theCurrentLevel == "G1") {
+				System.out.println("G2 license is issued");
+			} else if (theCurrentLevel == "G2") {
+				System.out.println("G license is issued");
+			}
 		} else {
 			System.out.println("license is not issued");
 		}

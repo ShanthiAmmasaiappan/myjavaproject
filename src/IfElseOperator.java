@@ -7,16 +7,14 @@ public class IfElseOperator {
 		boolean isLifeguardSocietyCertificate = !true;
 		boolean hasStandardFirstAid = true;
 
-		
-			if ((age >= 16) && hasStandardFirstAid && isLifeguardSocietyCertificate) {
-				System.out.println(" Can apply for the job: ");
-			}
-		
-		 
-		else if((age >= 16)|| hasStandardFirstAid && isLifeguardSocietyCertificate){
+		if ((age >= 16) && hasStandardFirstAid && isLifeguardSocietyCertificate) {
+			System.out.println(" Can apply for the job: ");
+		}
+
+		else if ((age >= 16) || hasStandardFirstAid && isLifeguardSocietyCertificate) {
 			System.out.println("Cannot apply for the job");
 		}
-			
+
 	}
 
 }
