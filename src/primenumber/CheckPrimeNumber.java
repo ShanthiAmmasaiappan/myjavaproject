@@ -1,10 +1,13 @@
+/*Write a program to check if the number is prime or not.*/
+
 package primenumber;
 
 public class CheckPrimeNumber {
 	public static void main(String args[]) {
 // TODO Auto-generated method stub
-		int n = 67;
-		boolean isPrime = true;
+		int n = 26;
+		int flag = 0;
+
 		if (n == 0 || n == 1) {
 			System.out.println(n + " is not a prime number");
 		} else if (n == 2) {
@@ -14,11 +17,11 @@ public class CheckPrimeNumber {
 				// condition for non-prime number
 				if (n % i == 0) {
 					System.out.println(n + " is not a prime number.");
-					isPrime = false;
+					flag = 1;
 					break;
 				}
 			}
-			if (isPrime) {
+			if (flag == 0) {
 
 				System.out.println(n + " is a prime number.");
 			}

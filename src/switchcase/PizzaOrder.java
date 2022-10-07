@@ -1,72 +1,61 @@
+/* Write a program to prepare the bill for a pizza shop.
+Assume an order and work out the final bill.
+Take the Cheese Pizza prices as: 
+Small Pizza: $15, Medium Pizza: $20, Large Pizza: $25
+For additional pepperoni topping: 
+Pepperoni for Small Pizza: +$2, Pepperoni for Medium or Large Pizza: +$3
+Extra cheese for any size pizza: + $1
+*/
+
 package switchcase;
 
 public class PizzaOrder {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int smallCheesePizza = 15;
-		int mediumCheesePizza = 20;
-		int largeCheesePizza = 25;
-		int pepperoniSmallPizza = 2;
-		int pepperoniMediumPizza, pepperoniLargePizza ;
-		pepperoniMediumPizza = pepperoniLargePizza = 15;
-		int extraCheese = 1;
+		int smallPizza = 15;
+		int mediumPizza = 20;
+		int largePizza = 25;
+		boolean pepperoniSmall = false;
+		boolean pepperoniMedium = false;
+		boolean pepperoniLarge = false;
+		boolean extraCheese = false;
 		int finalAmount;
-		
-		String pizzaType = "mediumPepperoni and cheese";
-		switch(pizzaType) {
-		case "smallpizza":
-			finalAmount = smallCheesePizza ;
-			System.out.println("The final bill = $" +finalAmount);
+
+		String pizzaType = "small";
+		switch (pizzaType) {
+		case "small":
+			finalAmount = smallPizza;
+			if (pepperoniSmall) {
+				finalAmount = finalAmount + 2;
+			}
+			if (extraCheese) {
+				finalAmount = finalAmount + 1;
+			}
+			System.out.println("The final bill = $" + finalAmount);
 			break;
-		case "smallpepperoni":
-			finalAmount = smallCheesePizza + pepperoniSmallPizza ;
-			System.out.println("The final bill = $" +finalAmount);
+		case "medium":
+			finalAmount = mediumPizza;
+			if (pepperoniMedium) {
+				finalAmount = finalAmount + 3;
+			}
+			if (extraCheese) {
+				finalAmount = finalAmount + 1;
+			}
+			System.out.println("The final bill = $" + finalAmount);
 			break;
-		case "smallPepperoni and cheese":
-			finalAmount = smallCheesePizza + extraCheese;
-			System.out.println("The final bill = $" +finalAmount);
+		case "large":
+			finalAmount = largePizza;
+			if (pepperoniLarge) {
+				finalAmount = finalAmount + 3;
+			}
+			if (extraCheese) {
+				finalAmount = finalAmount + 1;
+			}
+			System.out.println("The final bill = $" + finalAmount);
 			break;
-		case "smallextracheese":
-			finalAmount = smallCheesePizza + pepperoniSmallPizza + extraCheese;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "mediumpizza":
-			finalAmount = mediumCheesePizza;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "mediumpepperoni":
-			finalAmount = mediumCheesePizza + pepperoniMediumPizza;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "mediumPepperoni and cheese":
-			finalAmount = mediumCheesePizza + pepperoniMediumPizza + extraCheese;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "mediumextracheese":
-			finalAmount = mediumCheesePizza + extraCheese;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "largepizza":
-			finalAmount = largeCheesePizza ;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "largepepperoni":
-			finalAmount = largeCheesePizza+pepperoniLargePizza;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "largePepperoni and cheese":
-			finalAmount = largeCheesePizza + pepperoniLargePizza + extraCheese;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-		case "largeextracheese":
-			finalAmount = largeCheesePizza + extraCheese;
-			System.out.println("The final bill = $" +finalAmount);
-			break;
-			
-			default:
-				System.out.println("Order is not placed");
+		default:
+			System.out.println("Order is not placed");
 		}
 	}
 }
-		
