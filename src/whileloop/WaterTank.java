@@ -12,7 +12,7 @@ public class WaterTank {
 		// TODO Auto-generated method stub
 		int maxTankCapacity = 100;
 		int bucketCapacity = 10;
-		int initialLevel = 8;
+		int initialLevel = 0;
 		int currentLevel = initialLevel;
 		int tankThershold = 98;
 

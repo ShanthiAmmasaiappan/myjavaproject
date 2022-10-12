@@ -6,13 +6,13 @@ public class BasicJava {
 		// type sout and press clt+space and then double click for System.out.println
 		// for formatting = clt=shift+f
 //		for comment clt + /
-//		int age = 25;
-//		String name = "Shanthi";
-//		System.out.println(name + " " + "Ammasaiappan");
-//		System.out.println(22);
-//		int i = 11;
-//		i = i + i++;
-//		System.out.println(i);
+		int age = 25;
+		String name = "Shanthi";
+		System.out.println(name + " " + "Ammasaiappan");
+		System.out.println(22);
+		int i = 11;
+		i = i + i++;
+		System.out.println(i);
 		int temp = 20;
 		
 		
@@ -22,5 +22,7 @@ public class BasicJava {
 		else {
 			System.out.println("its a beautiful day");
 		}
+		
+
 	}
 }
