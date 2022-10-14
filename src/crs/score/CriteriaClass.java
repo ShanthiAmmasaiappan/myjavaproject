@@ -1,8 +1,8 @@
 package crs.score;
 
 public class CriteriaClass {
-	int points;
-	int yearsPoints;
+	int educationPoints=0;
+	int experiencePoints;
 	int agePoints;
 	int listenPoints;
 	int speakPoints;
@@ -10,36 +10,37 @@ public class CriteriaClass {
 	int writePoints;
 	int relativePoints;
 	int studyPoints;
-	int studyNOCPoints;
+	int workPoints;
 
-	int criteriaMethodOne(String education) {
+	int educationCriteria(String education) {
 
-		if (education.equals("PhD")) {
-			points = 25;
+		if (education.equalsIgnoreCase("PhD")) {
+			educationPoints = 25;
 		}
-		if (education.equals("Masters")) {
-			points = 23;
+		else if (education.equalsIgnoreCase("Masters")) {
+			educationPoints = 23;
 		}
-		if (education.equals("University degrees")) {
-			points = 22;
+		else if (education.equalsIgnoreCase("University degrees")) {
+			educationPoints = 22;
 		}
-		if (education.equals("degrees/diplomas")) {
-			points = 21;
+		else if (education.equalsIgnoreCase("degrees/diplomas")) {
+			educationPoints = 21;
 		}
-		return points;
+		
+		return educationPoints;
 	}
 
-	int criteriaMethodTwo(int experience) {
+	int experienceCriteria(int experience) {
 
 		if (experience == 4 || experience == 5) {
-			yearsPoints = 13;
+			experiencePoints = 13;
 		} else if (experience >= 6) {
-			yearsPoints = 15;
+			experiencePoints = 15;
 		}
-		return yearsPoints;
+		return experiencePoints;
 	}
 
-	int criteriaMethodThree(int age) {
+	int ageCriteria(int age) {
 
 		if (age < 18) {
 			agePoints = 00;
@@ -73,7 +74,7 @@ public class CriteriaClass {
 		return agePoints;
 	}
 
-	int criteriaMethodFour(float ieltsListening) {
+	int listeningModule(float ieltsListening) {
 
 		if (ieltsListening >= 8) {
 			listenPoints = 6;
@@ -83,7 +84,7 @@ public class CriteriaClass {
 		return listenPoints;
 	}
 
-	int criteriaMethodFive(float ieltsSpeaking) {
+	int speakingModule(float ieltsSpeaking) {
 
 		if (ieltsSpeaking >= 7) {
 			speakPoints = 6;
@@ -93,7 +94,7 @@ public class CriteriaClass {
 		return speakPoints;
 	}
 
-	int criteriaMethodSix(float ieltsReading) {
+	int readingModule(float ieltsReading) {
 
 		if (ieltsReading >= 7) {
 			readPoints = 6;
@@ -103,7 +104,7 @@ public class CriteriaClass {
 		return readPoints;
 	}
 
-	int criteriaMethodSeven(float ieltsWriting) {
+	int writingModule(float ieltsWriting) {
 
 		if (ieltsWriting >= 7) {
 			writePoints = 6;
@@ -113,7 +114,7 @@ public class CriteriaClass {
 		return writePoints;
 	}
 
-	int criteriaMethodEight(String relative) {
+	int relativesCriteria(String relative) {
 		if (relative.equalsIgnoreCase("Y")) {
 			relativePoints = 5;
 		} else if (relative.equalsIgnoreCase("N")) {
@@ -122,7 +123,7 @@ public class CriteriaClass {
 		return relativePoints;
 	}
 
-	int criteriaMethodNine(String study) {
+	int studyCriteria(String study) {
 		if (study.equalsIgnoreCase("Y")) {
 			studyPoints = 5;
 		} else if (study.equalsIgnoreCase("N")) {
@@ -131,13 +132,13 @@ public class CriteriaClass {
 		return studyPoints;
 	}
 
-	int criteriaMethodTen(String studyNOC) {
-		if (studyNOC.equalsIgnoreCase("Y")) {
-			studyNOCPoints = 10;
-		} else if (studyNOC.equalsIgnoreCase("N")) {
-			studyNOCPoints = 0;
+	int workCriteria(String work) {
+		if (work.equalsIgnoreCase("Y")) {
+			workPoints = 10;
+		} else if (work.equalsIgnoreCase("N")) {
+			workPoints = 0;
 		}
-		return studyNOCPoints;
+		return workPoints;
 	}
 
 }

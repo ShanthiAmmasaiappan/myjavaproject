@@ -27,34 +27,35 @@ public class MainImmigrationCanadaClass {
 		System.out.println("Have you studied in Canada for atleast 2 years (Y/N)");
 		String study = sc.next();
 		System.out.println("Have you studied in Canada for atleast 2 years at NOC 0, A, B (Y/N)");
-		String studyNOC = sc.next();
+		String work = sc.next();
 		
 //		Creating the Class instance
 		CriteriaClass cc = new CriteriaClass();
 //		Calling the method
-		cc.criteriaMethodOne(education);
+		cc.educationCriteria(education);
 //		Returns value from the method
-		int points = cc.criteriaMethodOne(education);
-		cc.criteriaMethodTwo(experience);
-		int yearsPoints = cc.criteriaMethodTwo(experience);
-		cc.criteriaMethodThree(age);
-		int agePoints = cc.criteriaMethodThree(age);
-		cc.criteriaMethodFour(ieltsListen);
-		int listenPoints = cc.criteriaMethodFour(ieltsListen);
-		cc.criteriaMethodFive(ieltsSpeak);
-		int speakPoints = cc.criteriaMethodFive(ieltsSpeak);
-		cc.criteriaMethodSix(ieltsRead);
-		int readPoints = cc.criteriaMethodSix(ieltsRead);
-		cc.criteriaMethodSeven(ieltsWrite);
-		int writePoints = cc.criteriaMethodSeven(ieltsWrite);
-		cc.criteriaMethodEight(relative);
-		int relativePoints = cc.criteriaMethodEight(relative);
-		cc.criteriaMethodNine(study);
-		int studyPoints = cc.criteriaMethodNine(study);
-		cc.criteriaMethodTen(studyNOC);
-		int studyNOCPoints = cc.criteriaMethodTen(studyNOC);
-		int testScore = points + yearsPoints + agePoints + listenPoints + speakPoints + readPoints + writePoints
-				+ relativePoints + studyPoints + studyNOCPoints;
+		int educationPoints = cc.educationCriteria(education);
+		cc.experienceCriteria(experience);
+		int experiencePoints = cc.experienceCriteria(experience);
+		cc.ageCriteria(age);
+		int agePoints = cc.ageCriteria(age);
+		cc.listeningModule(ieltsListen);
+		int listenPoints = cc.listeningModule(ieltsListen);
+		cc.speakingModule(ieltsSpeak);
+		int speakPoints = cc.speakingModule(ieltsSpeak);
+		cc.readingModule(ieltsRead);
+		int readPoints = cc.readingModule(ieltsRead);
+		cc.writingModule(ieltsWrite);
+		int writePoints = cc.writingModule(ieltsWrite);
+		cc.relativesCriteria(relative);
+		int relativePoints = cc.relativesCriteria(relative);
+		cc.studyCriteria(study);
+		int studyPoints = cc.studyCriteria(study);
+		cc.workCriteria(work);
+		int workPoints = cc.workCriteria(work);
+		
+		int testScore = educationPoints + experiencePoints + agePoints + listenPoints + speakPoints + readPoints + writePoints
+				+ relativePoints + studyPoints + workPoints;
 		System.out.println(("Total points you have scored : " + testScore + " Points"));
 
 		if (testScore >= 67) {
