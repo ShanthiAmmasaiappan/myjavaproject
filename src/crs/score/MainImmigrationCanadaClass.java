@@ -22,8 +22,7 @@ public class MainImmigrationCanadaClass {
 		float ieltsRead = sc.nextFloat();
 		System.out.println("Enter your IELTS Score for Writing:");
 		float ieltsWrite = sc.nextFloat();
-		System.out.println(
-				"If you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder (Y/N)");
+		System.out.println("If you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder (Y/N)");
 		String relative = sc.next();
 		System.out.println("Have you studied in Canada for atleast 2 years (Y/N)");
 		String study = sc.next();
