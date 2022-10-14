@@ -16,7 +16,7 @@ public class MethodCellPhoneClass {
 			samsungPhoneTab = 55;
 		} else if (model.equalsIgnoreCase("S22FE")) {
 			samsungPhoneTab = 20;
-		}else {
+		} else {
 			System.out.println("Please enter the correct model and try again");
 			System.exit(samsungPhoneTab);
 		}
@@ -32,7 +32,7 @@ public class MethodCellPhoneClass {
 			applePhoneTab = 65;
 		} else if (models.equalsIgnoreCase("iphone14mini")) {
 			applePhoneTab = 25;
-		}else {
+		} else {
 			System.out.println("Please enter the correct model and try again");
 			System.exit(applePhoneTab);
 		}
@@ -47,7 +47,7 @@ public class MethodCellPhoneClass {
 			monthlyPlan = 80;
 		} else if (plan.equalsIgnoreCase("Telus")) {
 			monthlyPlan = 75;
-		}else {
+		} else {
 			System.out.println("Please enter the correct plan and try again");
 			System.exit(monthlyPlan);
 		}

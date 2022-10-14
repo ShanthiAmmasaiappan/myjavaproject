@@ -1,7 +1,7 @@
 package crs.score;
 
 public class CriteriaClass {
-	int educationPoints=0;
+	int educationPoints = 0;
 	int experiencePoints;
 	int agePoints;
 	int listenPoints;
