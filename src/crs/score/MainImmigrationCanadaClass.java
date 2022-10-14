@@ -22,13 +22,14 @@ public class MainImmigrationCanadaClass {
 		float ieltsRead = sc.nextFloat();
 		System.out.println("Enter your IELTS Score for Writing:");
 		float ieltsWrite = sc.nextFloat();
-		System.out.println("If you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder (Y/N)");
+		System.out.println(
+				"If you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder (Y/N)");
 		String relative = sc.next();
 		System.out.println("Have you studied in Canada for atleast 2 years (Y/N)");
 		String study = sc.next();
 		System.out.println("Have you studied in Canada for atleast 2 years at NOC 0, A, B (Y/N)");
 		String work = sc.next();
-		
+
 //		Creating the Class instance
 		CriteriaClass cc = new CriteriaClass();
 //		Calling the method
@@ -53,9 +54,9 @@ public class MainImmigrationCanadaClass {
 		int studyPoints = cc.studyCriteria(study);
 		cc.workCriteria(work);
 		int workPoints = cc.workCriteria(work);
-		
-		int testScore = educationPoints + experiencePoints + agePoints + listenPoints + speakPoints + readPoints + writePoints
-				+ relativePoints + studyPoints + workPoints;
+
+		int testScore = educationPoints + experiencePoints + agePoints + listenPoints + speakPoints + readPoints
+				+ writePoints + relativePoints + studyPoints + workPoints;
 		System.out.println(("Total points you have scored : " + testScore + " Points"));
 
 		if (testScore >= 67) {
@@ -63,6 +64,6 @@ public class MainImmigrationCanadaClass {
 		} else {
 			System.out.println("Not eligible.");
 		}
-		
+
 	}
 }
