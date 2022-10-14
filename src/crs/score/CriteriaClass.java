@@ -1,7 +1,7 @@
 package crs.score;
 
 public class CriteriaClass {
-	int educationPoints = 0;
+	int educationPoints=0;
 	int experiencePoints;
 	int agePoints;
 	int listenPoints;
@@ -23,7 +23,6 @@ public class CriteriaClass {
 		} else if (education.equalsIgnoreCase("degrees/diplomas")) {
 			educationPoints = 21;
 		}
-
 		return educationPoints;
 	}
 

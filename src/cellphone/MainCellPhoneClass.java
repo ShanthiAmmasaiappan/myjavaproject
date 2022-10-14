@@ -51,7 +51,8 @@ public class MainCellPhoneClass {
 			String models = sc.next();
 //			Calling the method appleModel
 			one.appleModel(models);
-//			Returns value from the appleModel			
+//			Returns value from the appleModel
+			
 			int applePhoneTab = one.appleModel(models);
 			System.out.println("Please select the plan that you want to opt for: Rogers/Telus/Bell  ");
 //			Reads input from the user during runtime
