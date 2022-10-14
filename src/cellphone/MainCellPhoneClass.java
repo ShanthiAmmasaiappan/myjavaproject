@@ -24,9 +24,9 @@ public class MainCellPhoneClass {
 
 //			Reads input from the user during runtime
 			String model = sc.next();
-//			Calling the method samsungModelMethod
+//			Calling the method samsungModel
 			one.samsungModel(model);
-//			Returns value from the method samsungModelMethod
+//			Returns value from the method samsungModel
 			int samsungPhoneTab = one.samsungModel(model);
 
 			System.out.println("Please select the plan that you want to opt for: Rogers/Telus/Bell ");
@@ -49,8 +49,9 @@ public class MainCellPhoneClass {
 			}
 
 			String models = sc.next();
-
+//			Calling the method appleModel
 			one.appleModel(models);
+//			Returns value from the appleModel			
 			int applePhoneTab = one.appleModel(models);
 			System.out.println("Please select the plan that you want to opt for: Rogers/Telus/Bell  ");
 //			Reads input from the user during runtime
