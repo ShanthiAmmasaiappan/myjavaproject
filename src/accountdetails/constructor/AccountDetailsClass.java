@@ -4,8 +4,7 @@ public class AccountDetailsClass {
 	String accountNumber;
 	int pinNumber;
 	double balance;
-	double deposit;
-	double withdraw;
+	
 
 	public AccountDetailsClass(String accNumber, int pIN, double bal) {
 
