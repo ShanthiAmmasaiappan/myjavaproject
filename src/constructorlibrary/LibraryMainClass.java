@@ -21,9 +21,10 @@ public class LibraryMainClass {
 		BookDetails[] bookDetails = { romeoAndJuliet, peaceOfMind, homeBody, twoStates, halfGirlfriend, oliverTwist,
 				macbeth, harrypotter1, malgudyDays, alchemist };
 		Scanner sc = new Scanner(System.in);
-
+		int flag = 0;
 		int bookCount = 0;
 		int count = 0;
+
 		do {
 
 			System.out.println("Which book you want to be issued");
@@ -37,6 +38,7 @@ public class LibraryMainClass {
 						&& !bookDetails[i].isBookIssued) {
 					bookDetails[i].isBookIssued = true;
 					System.out.println(bookDetails[i].bookName + " is issued");
+					flag = 0;
 					bookCount++;
 
 					if (count < 2) {
@@ -46,29 +48,34 @@ public class LibraryMainClass {
 						if (proceed.equalsIgnoreCase("Y")) {
 							count++;
 						} else if (proceed.equalsIgnoreCase("N")) {
-							System.exit(i);
+							System.exit(0);
 						}
 
 					}
-
 					break;
+
 				} else if (requiredBookName.equals(bookDetails[i].bookName)
 						&& bookAuthor.equals(bookDetails[i].authorName) && bookDetails[i].isBookIssued) {
 					bookDetails[i].isBookIssued = false;
+
 					System.out.println("Book is already issued");
 					System.out.println("Do you want to continue:");
 					String proceed = sc.nextLine();
+					flag = 0;
 					if (proceed.equalsIgnoreCase("Y")) {
 						break;
-					} else {
-						System.exit(i);
+					} else if (proceed.equalsIgnoreCase("N")) {
+						System.exit(0);
 					}
+				} else {
+					flag = 1;
 				}
-
 			}
-
+			if (flag == 1) {
+				System.out.println("Not in the list");
+			}
 		} while (bookCount < 3);
-
+		System.exit(0);
 	}
 
 }

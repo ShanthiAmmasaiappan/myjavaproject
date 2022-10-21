@@ -34,6 +34,7 @@ public class MainCruiseShipClass {
 		double hst = 0;
 		double finalPrice = 0;
 		int flag = 0;
+		int numberOfAdults;
 
 		do {
 			System.out.println("\nPlease select the Cruise ship :");
@@ -61,8 +62,13 @@ public class MainCruiseShipClass {
 			selection = sc.nextLine();
 		} while (!selection.equalsIgnoreCase("y"));
 
-		System.out.println("Enter the number of adults:");
-		int numberOfAdults = sc.nextInt();
+		do {
+			System.out.println("Enter the number of adults:");
+			numberOfAdults = sc.nextInt();
+			if (numberOfAdults == 0) {
+				System.out.println("Please enter the number");
+			}
+		} while (numberOfAdults == 0);
 
 		System.out.println("Enter the number of children:");
 		int numberOfChildren = sc.nextInt();
@@ -85,38 +91,42 @@ public class MainCruiseShipClass {
 		System.out.println("Your Package includes:");
 		for (int i = 0; i < cruiseDetails.length; i++) {
 			if (selectCruiseShips.equals(cruiseDetails[i].cruiseName)) {
-				double adultFare = cruiseDetails[i].cruiseAdultFare();
-				totalAdultFare = adultFare * numberOfAdults;
+				double adultFare = cruiseDetails[i].cruiseAdultFare(numberOfAdults);
+				totalAdultFare = adultFare;
 				System.out.println(selectCruiseShips + " Adults      " + "  @  " + numberOfAdults + "             : $"
 						+ totalAdultFare);
 
-				double childFare = cruiseDetails[i].cruiseChildFare();
 				for (int j = 0; j < arrayAgeOfChild.length; j++) {
 					if (arrayAgeOfChild[j] < 6) {
 						numberOfChildren = numberOfChildren - 1;
 					}
 				}
-				totalChildFare = childFare * numberOfChildren;
+				double childFare = cruiseDetails[i].cruiseChildFare(numberOfChildren);
+				totalChildFare = childFare;
 				System.out.println(selectCruiseShips + " Children above 5      " + "  @  " + numberOfChildren
 						+ "        : $" + totalChildFare);
+				if (dinnerBuffetMeal.equals("Yes")) {
+					double adultBuffet = cruiseDetails[i].adultBuffetMealFare(numberOfAdults);
+					buffetAdultFare = cruiseDetails[i].adultBuffet;
+					double childBuffet = cruiseDetails[i].childBuffetMealFare(numberOfChildren);
+					buffetChildFare = cruiseDetails[i].childBuffet;
+					System.out.println(
+							"Buffet Special Price Adults " + "  @  " + numberOfAdults + " : $" + buffetAdultFare);
+					System.out.println("Buffet Special Price Children above 5 " + "  @  " + numberOfChildren + " : $"
+							+ buffetChildFare);
+					flag = 0;
+				}
+
+				else {
+					flag = 1;
+				}
+			}
+			if (flag == 1) {
+
+				System.out.println("Dinner buffet meal not selected.");
 			}
 		}
 
-		if (dinnerBuffetMeal.equals("Yes")) {
-			buffetAdultFare = numberOfAdults * 20.99;
-			buffetChildFare = numberOfChildren * 4.99;
-			System.out.println("Buffet Special Price Adults " + "  @  " + numberOfAdults + " : $" + buffetAdultFare);
-			System.out.println(
-					"Buffet Special Price Children above 5 " + "  @  " + numberOfChildren + " : $" + buffetChildFare);
-		} else if (dinnerBuffetMeal.equals("No")) {
-			buffetAdultFare = numberOfAdults * 20.99;
-			buffetChildFare = numberOfChildren * 4.99;
-			System.out.println("Buffet Special Price Adults " + "  @  " + numberOfAdults + " : $" + buffetAdultFare);
-			System.out.println(
-					"Buffet Special Price Children above 5 " + "  @  " + numberOfChildren + " : $" + buffetChildFare);
-		} else {
-			System.out.println("Dinner buffet meal not selected.");
-		}
 		totalPrice = totalAdultFare + totalChildFare + buffetAdultFare + buffetChildFare;
 		System.out.println("Total Price                    : $" + totalPrice);
 		hst = totalPrice * 0.15;

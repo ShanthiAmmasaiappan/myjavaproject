@@ -5,6 +5,8 @@ public class CruiseShipDetails {
 	double adultFare;
 	double childFare;
 	int days;
+	double adultBuffet;
+	double childBuffet;
 
 	public CruiseShipDetails(String nameOfCruise, double adultFee, double kidsFare, int numOfDays) {
 
@@ -14,14 +16,24 @@ public class CruiseShipDetails {
 		days = numOfDays;
 	}
 
-	double cruiseAdultFare() {
-		adultFare = adultFare * days;
+	double cruiseAdultFare(int numberOfAdults) {
+		adultFare = adultFare * days * numberOfAdults;
 		return adultFare;
 	}
 
-	double cruiseChildFare() {
-		childFare = childFare * days;
+	double cruiseChildFare(int numberOfChildren) {
+		childFare = childFare * days * numberOfChildren;
 		return childFare;
+	}
+
+	double adultBuffetMealFare(int numberOfAdults) {
+		adultBuffet = 20.99 * days * numberOfAdults;
+		return adultBuffet;
+	}
+
+	double childBuffetMealFare(int numberOfChildren) {
+		childBuffet = 4.99 * days * numberOfChildren;
+		return childBuffet;
 	}
 
 }

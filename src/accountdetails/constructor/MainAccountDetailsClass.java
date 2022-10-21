@@ -38,12 +38,12 @@ public class MainAccountDetailsClass {
 					double amount = sc.nextDouble();
 					if (depositOrWithdraw.equalsIgnoreCase("deposit")) {
 
-						double balance = accountDetails[i].updateMoneyDeposit(amount);
+						double balance = accountDetails[i].updateDepositBalance(amount);
 						System.out.println("Deposit amount  : $" + amount);
 						System.out.println("Account balance : $" + accountDetails[i].balance);
 
 					} else if (depositOrWithdraw.equalsIgnoreCase("withdraw")) {
-						double balance = accountDetails[i].updateMoneyWithdrawal(amount);
+						double balance = accountDetails[i].updateWithdrawBalance(amount);
 						System.out.println("Withdrawal amount : $" + amount);
 						System.out.println("Account balance : $" + accountDetails[i].balance);
 					}

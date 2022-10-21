@@ -26,12 +26,12 @@ public class AccountDetailsClass {
 		return balance;
 	}
 
-	double updateMoneyDeposit(double amount) {
+	double updateDepositBalance(double amount) {
 		balance = balance + amount;
 		return balance;
 	}
 
-	double updateMoneyWithdrawal(double amount) {
+	double updateWithdrawBalance(double amount) {
 		balance = balance - amount;
 		return balance;
 	}
