@@ -5,8 +5,11 @@ public class CruiseShipDetails {
 	double adultFare;
 	double childFare;
 	int days;
-	double adultBuffet;
-	double childBuffet;
+	double buffetAdultFare;
+	double buffetChildFare;
+	double totalPrice;
+	double hst;
+	double finalPrice;
 
 	public CruiseShipDetails(String nameOfCruise, double adultFee, double kidsFare, int numOfDays) {
 
@@ -27,13 +30,30 @@ public class CruiseShipDetails {
 	}
 
 	double adultBuffetMealFare(int numberOfAdults) {
-		adultBuffet = 20.99 * days * numberOfAdults;
-		return adultBuffet;
+		buffetAdultFare = 20.99 * days * numberOfAdults;
+		return buffetAdultFare;
 	}
 
-	double childBuffetMealFare(int numberOfChildren) {
-		childBuffet = 4.99 * days * numberOfChildren;
-		return childBuffet;
+	double childBuffetMealFare(int numberOfChildren) {		
+		buffetChildFare = 4.99 * days * numberOfChildren;
+		return buffetChildFare;
+	}
+	void finalPriceCalculation(String selectCruiseShips, int numberOfAdults,int numberOfChildren) {
+		System.out.println(selectCruiseShips + " Adults      " + "  @  " + numberOfAdults + "             : $"
+				+ adultFare);
+		System.out.println(selectCruiseShips + " Children above 5      " + "  @  " + numberOfChildren
+				+ "        : $" + childFare);
+		System.out.println(
+				"Buffet Special Price Adults " + "  @  " + numberOfAdults + " : $" +buffetAdultFare);
+		System.out.println("Buffet Special Price Children above 5 " + "  @  " + numberOfChildren + " : $"
+				+ buffetChildFare);
+		totalPrice = adultFare + childFare + buffetAdultFare + buffetChildFare;
+		System.out.println("Total Price                    : $" + totalPrice);
+		hst = totalPrice * 0.15;
+		System.out.println("HST	@ 15%                  : $" + hst);
+		finalPrice = totalPrice + hst;
+		System.out.println("Final Price                    : $" + finalPrice);
+
 	}
 
 }
