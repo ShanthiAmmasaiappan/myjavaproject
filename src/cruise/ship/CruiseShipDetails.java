@@ -1,3 +1,5 @@
+
+
 package cruise.ship;
 
 public class CruiseShipDetails {

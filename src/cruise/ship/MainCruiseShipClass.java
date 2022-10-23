@@ -1,5 +1,7 @@
 package cruise.ship;
 
+
+
 import java.util.Scanner;
 
 public class MainCruiseShipClass {
@@ -82,8 +84,12 @@ public class MainCruiseShipClass {
 		dinnerBuffetMeal = sc.next();
 
 		System.out.println("Your Package includes:");
-		for (int i = 0; i < cruiseDetails.length; i++) {
+		for (
+				int i = 0;
+				i < cruiseDetails.length;
+				i++) {
 			if (selectCruiseShips.equals(cruiseDetails[i].cruiseName)) {
+				
 				double adultFare = cruiseDetails[i].cruiseAdultFare(numberOfAdults);
 
 				for (int j = 0; j < arrayAgeOfChild.length; j++) {
@@ -99,20 +105,23 @@ public class MainCruiseShipClass {
 					double childBuffet = cruiseDetails[i].childBuffetMealFare(numberOfChildren);
 
 					flag = 0;
+
 				}
+				
 				else {
 					flag = 1;
 				}
 				cruiseDetails[i].finalPriceCalculation(selectCruiseShips, numberOfAdults, numberOfChildren);
 			}
-			if (flag == 1) {
+		
+		}if (flag == 1) {
 
 				System.out.println("Dinner buffet meal not selected.");
 			}
 
 			System.exit(0);
-		}
+		
 
 	}
-
 }
+

@@ -31,22 +31,17 @@ public class MainAccountDetailsClass {
 				if ((accNumber.equals(accountDetails[i].accountNumber))
 						&& (pinNumber == (accountDetails[i].pinNumber))) {
 					System.out.println("Balance is " + accountDetails[i].balance);
+					String depositOrWithdraw;
+					do {
+						System.out.println("Do you want to either deposit or withdraw money");
+						depositOrWithdraw = sc.next();
 
-					System.out.println("Do you want to either deposit or withdraw money");
-					String depositOrWithdraw = sc.next();
+					} while (!depositOrWithdraw.equalsIgnoreCase("deposit")
+							&& !depositOrWithdraw.equalsIgnoreCase("withdraw"));
+
 					System.out.println("Please enter the amount:");
 					double amount = sc.nextDouble();
-					if (depositOrWithdraw.equalsIgnoreCase("deposit")) {
-
-						double balance = accountDetails[i].updateDepositBalance(amount);
-						System.out.println("Deposit amount  : $" + amount);
-						System.out.println("Account balance : $" + accountDetails[i].balance);
-
-					} else if (depositOrWithdraw.equalsIgnoreCase("withdraw")) {
-						double balance = accountDetails[i].updateWithdrawBalance(amount);
-						System.out.println("Withdrawal amount : $" + amount);
-						System.out.println("Account balance : $" + accountDetails[i].balance);
-					}
+					accountDetails[i].updateBalance(depositOrWithdraw, amount);
 					flag = 0;
 					System.exit(0);
 

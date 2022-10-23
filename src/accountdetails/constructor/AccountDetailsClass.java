@@ -4,7 +4,6 @@ public class AccountDetailsClass {
 	String accountNumber;
 	int pinNumber;
 	double balance;
-	
 
 	public AccountDetailsClass(String accNumber, int pIN, double bal) {
 
@@ -26,14 +25,23 @@ public class AccountDetailsClass {
 		return balance;
 	}
 
-	double updateDepositBalance(double amount) {
-		balance = balance + amount;
-		return balance;
-	}
+	void updateBalance(String depositOrWithdraw, double amount) {
+		if (depositOrWithdraw.equalsIgnoreCase("deposit")) {
+			balance = balance + amount;
 
-	double updateWithdrawBalance(double amount) {
-		balance = balance - amount;
-		return balance;
+			System.out.println("Deposit amount  : $" + amount);
+			System.out.println("Account balance : $" + balance);
+
+		} else if (depositOrWithdraw.equalsIgnoreCase("withdraw")) {
+
+			balance = balance - amount;
+			System.out.println("Withdrawal amount : $" + amount);
+			System.out.println("Account balance : $" + balance);
+		} else {
+			System.out.println("Invalid entry");
+
+		}
+
 	}
 
 }
