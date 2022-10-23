@@ -105,13 +105,13 @@ public class MainCruiseShipClass {
 				}
 				cruiseDetails[i].finalPriceCalculation(selectCruiseShips, numberOfAdults, numberOfChildren);
 			}
-			if (flag == 1) {
+		}if (flag == 1) {
 
 				System.out.println("Dinner buffet meal not selected.");
 			}
 
 			System.exit(0);
-		}
+		
 
 	}
 
