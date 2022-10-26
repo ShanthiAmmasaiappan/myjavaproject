@@ -9,6 +9,7 @@ public class VehicleDetails {
 		this.color = color;
 		this.model = model;
 	}
+	
 
 	public void getModel() {
 		System.out.println(model);
@@ -23,7 +24,7 @@ public class VehicleDetails {
 		}
 
 		else {
-			System.out.println("Color is not available");
+			System.out.println("Car is not available");
 		}
 
 	}

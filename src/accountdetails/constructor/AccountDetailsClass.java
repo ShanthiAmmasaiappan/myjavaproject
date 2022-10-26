@@ -27,21 +27,24 @@ public class AccountDetailsClass {
 
 	void updateBalance(String depositOrWithdraw, double amount) {
 		if (depositOrWithdraw.equalsIgnoreCase("deposit")) {
+
 			balance = balance + amount;
 
 			System.out.println("Deposit amount  : $" + amount);
 			System.out.println("Account balance : $" + balance);
 
 		} else if (depositOrWithdraw.equalsIgnoreCase("withdraw")) {
+			if (balance > amount) {
 
-			balance = balance - amount;
-			System.out.println("Withdrawal amount : $" + amount);
-			System.out.println("Account balance : $" + balance);
-		} else {
-			System.out.println("Invalid entry");
+				balance = balance - amount;
+				System.out.println("Withdrawal amount : $" + amount);
+				System.out.println("Account balance : $" + balance);
+			} else {
+				System.out.println("Invalid entry");
+
+			}
 
 		}
 
 	}
-
 }

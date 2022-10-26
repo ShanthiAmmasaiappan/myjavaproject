@@ -1,8 +1,7 @@
+package cruisebooking;
 
+public class CruiseShipDetailsClass {
 
-package cruise.ship;
-
-public class CruiseShipDetails {
 	String cruiseName;
 	double adultFare;
 	double childFare;
@@ -13,7 +12,7 @@ public class CruiseShipDetails {
 	double hst;
 	double finalPrice;
 
-	public CruiseShipDetails(String nameOfCruise, double adultFee, double kidsFare, int numOfDays) {
+	public CruiseShipDetailsClass(String nameOfCruise, double adultFee, double kidsFare, int numOfDays) {
 
 		cruiseName = nameOfCruise;
 		adultFare = adultFee;
@@ -36,19 +35,19 @@ public class CruiseShipDetails {
 		return buffetAdultFare;
 	}
 
-	double childBuffetMealFare(int numberOfChildren) {		
+	double childBuffetMealFare(int numberOfChildren) {
 		buffetChildFare = 4.99 * days * numberOfChildren;
 		return buffetChildFare;
 	}
-	void finalPriceCalculation(String selectCruiseShips, int numberOfAdults,int numberOfChildren) {
-		System.out.println(selectCruiseShips + " Adults      " + "  @  " + numberOfAdults + "             : $"
-				+ adultFare);
-		System.out.println(selectCruiseShips + " Children above 5      " + "  @  " + numberOfChildren
-				+ "        : $" + childFare);
+
+	void finalPriceCalculation(String selectCruiseShips, int numberOfAdults, int numberOfChildren) {
 		System.out.println(
-				"Buffet Special Price Adults " + "  @  " + numberOfAdults + " : $" +buffetAdultFare);
-		System.out.println("Buffet Special Price Children above 5 " + "  @  " + numberOfChildren + " : $"
-				+ buffetChildFare);
+				selectCruiseShips + " Adults      " + "  @  " + numberOfAdults + "             : $" + adultFare);
+		System.out.println(
+				selectCruiseShips + " Children above 5      " + "  @  " + numberOfChildren + "        : $" + childFare);
+		System.out.println("Buffet Special Price Adults " + "  @  " + numberOfAdults + " : $" + buffetAdultFare);
+		System.out.println(
+				"Buffet Special Price Children above 5 " + "  @  " + numberOfChildren + " : $" + buffetChildFare);
 		totalPrice = adultFare + childFare + buffetAdultFare + buffetChildFare;
 		System.out.println("Total Price                    : $" + totalPrice);
 		hst = totalPrice * 0.15;
