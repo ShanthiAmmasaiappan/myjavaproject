@@ -76,9 +76,9 @@ public class UserDetailClass {
 			existingPassword = sc.next();
 			System.out.println("Enter your new password");
 			newPassword = sc.next();
+			numberOfAttempt++;
 			if (existingPassword.equals(newPassword)) {
-				numberOfAttempt++;
-				System.out.println("Entered password already exist");
+				System.out.println("Entered password already exist.Please try again");
 			} else if (this.passWord.equals(existingPassword)) {
 				this.passWord = newPassword;
 				System.out.println("Your password has been changed!");
@@ -86,11 +86,11 @@ public class UserDetailClass {
 				break;
 			} else {
 				noMatch = 1;
+				System.out.println("Password doesnot match.Please try again");
 			}
 
 			if (noMatch == 1) {
-				numberOfAttempt++;
-				System.out.println("Password doesnot match.");
+
 			}
 		} while (numberOfAttempt < 3);
 		System.out.println("Thank you for using the service!");
@@ -104,9 +104,9 @@ public class UserDetailClass {
 			existingPhoneNumber = sc.next();
 			System.out.println("Enter your new phonenumber");
 			newPhoneNumber = sc.next();
+			numberOfAttempt++;
 			if (existingPhoneNumber.equals(newPhoneNumber)) {
-				numberOfAttempt++;
-				System.out.println("Entered phonenumber already exist");
+				System.out.println("Entered phonenumber already exist.Please try again.");
 			} else if (this.phoNumber.equals(existingPhoneNumber)) {
 				this.phoNumber = newPhoneNumber;
 				System.out.println("Your phonenumber has been changed!");
@@ -114,11 +114,11 @@ public class UserDetailClass {
 				break;
 			} else {
 				noMatch = 1;
+				System.out.println("Phonenumber doesnot match.Please try again");
 			}
 
 			if (noMatch == 1) {
-				numberOfAttempt++;
-				System.out.println("Phonenumber doesnot match.");
+
 			}
 		} while (numberOfAttempt < 3);
 		System.out.println("Thank you for using the service!");
@@ -132,9 +132,9 @@ public class UserDetailClass {
 			existingEmail = sc.next();
 			System.out.println("Enter your new email");
 			newEmail = sc.next();
+			numberOfAttempt++;
 			if (existingEmail.equals(newEmail)) {
-				numberOfAttempt++;
-				System.out.println("Entered Email already exist.");
+				System.out.println("Entered Email already exist.Please try again");
 			}
 
 			else if (this.emailId.equals(existingEmail)) {
@@ -145,11 +145,10 @@ public class UserDetailClass {
 
 			} else {
 				noMatch = 1;
+				System.out.println("Email doesnot match.Please try again");
 			}
 
 			if ((noMatch == 1)) {
-				numberOfAttempt++;
-				System.out.println("Email doesnot match.");
 
 			}
 		} while (numberOfAttempt < 3);
