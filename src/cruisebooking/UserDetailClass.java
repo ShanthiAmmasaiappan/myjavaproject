@@ -76,11 +76,10 @@ public class UserDetailClass {
 			existingPassword = sc.next();
 			System.out.println("Enter your new password");
 			newPassword = sc.next();
-			if(existingPassword.equals(newPassword)) {				
+			if (existingPassword.equals(newPassword)) {
 				numberOfAttempt++;
 				System.out.println("Entered password already exist");
-			}
-			else if (this.passWord.equals(existingPassword)) {
+			} else if (this.passWord.equals(existingPassword)) {
 				this.passWord = newPassword;
 				System.out.println("Your password has been changed!");
 				noMatch = 0;
@@ -105,11 +104,10 @@ public class UserDetailClass {
 			existingPhoneNumber = sc.next();
 			System.out.println("Enter your new phonenumber");
 			newPhoneNumber = sc.next();
-			if(existingPhoneNumber.equals(newPhoneNumber)) {				
+			if (existingPhoneNumber.equals(newPhoneNumber)) {
 				numberOfAttempt++;
 				System.out.println("Entered phonenumber already exist");
-			}
-			else if (this.phoNumber.equals(existingPhoneNumber)) {
+			} else if (this.phoNumber.equals(existingPhoneNumber)) {
 				this.phoNumber = newPhoneNumber;
 				System.out.println("Your phonenumber has been changed!");
 				noMatch = 0;
@@ -134,13 +132,13 @@ public class UserDetailClass {
 			existingEmail = sc.next();
 			System.out.println("Enter your new email");
 			newEmail = sc.next();
-			if(existingEmail.equals(newEmail)) {				
+			if (existingEmail.equals(newEmail)) {
 				numberOfAttempt++;
 				System.out.println("Entered Email already exist.");
 			}
-			
+
 			else if (this.emailId.equals(existingEmail)) {
-				this.emailId = newEmail;				
+				this.emailId = newEmail;
 				System.out.println("Your email has been changed!");
 				noMatch = 0;
 				break;
