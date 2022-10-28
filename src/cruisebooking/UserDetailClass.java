@@ -24,6 +24,17 @@ public class UserDetailClass {
 
 	Scanner sc = new Scanner(System.in);
 
+	void userRegistrationDetails() {
+		System.out.println("Enter your email address:");
+		emailId = sc.nextLine();
+		System.out.println("Enter the password that you want to use.");
+		passWord = sc.nextLine();
+		System.out.println("Enter your Full Name.");
+		fullName = sc.nextLine();
+		System.out.println("Enter your phone number.");
+		phoNumber = sc.nextLine();
+	}
+
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
@@ -70,7 +81,7 @@ public class UserDetailClass {
 		}
 	}
 
-	public void setPassword(String existingPassword, String newPassword) {
+	public void validatePassword(String existingPassword, String newPassword) {
 		do {
 			System.out.println("Enter your existing password ");
 			existingPassword = sc.next();
@@ -98,7 +109,7 @@ public class UserDetailClass {
 
 	}
 
-	public void setPhoneNumber(String existingPhoneNumber, String newPhoneNumber) {
+	public void validatePhoneNumber(String existingPhoneNumber, String newPhoneNumber) {
 		do {
 			System.out.println("Enter your existing phonenumber ");
 			existingPhoneNumber = sc.next();
@@ -126,7 +137,7 @@ public class UserDetailClass {
 
 	}
 
-	public void setEmail(String existingEmail, String newEmail) {
+	public void validateEmail(String existingEmail, String newEmail) {
 		do {
 			System.out.println("Enter your existing email ");
 			existingEmail = sc.next();

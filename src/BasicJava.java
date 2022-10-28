@@ -1,4 +1,5 @@
 
+
 public class BasicJava {
 
 	public static void main(String[] args) {
@@ -22,6 +23,7 @@ public class BasicJava {
 		else {
 			System.out.println("its a beautiful day");
 		}
+
 		
 
 	}

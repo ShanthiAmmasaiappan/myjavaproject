@@ -11,14 +11,7 @@ public class MainCruiseBookingClass {
 
 		System.out.println("Welcome to Cruise booking.\n");
 		System.out.println("Please sign up to book a cruise.\n");
-		System.out.println("Enter your email address:");
-		String email = sc.nextLine();
-		System.out.println("Enter the password that you want to use.");
-		String password = sc.nextLine();
-		System.out.println("Enter your Full Name.");
-		String fullName = sc.nextLine();
-		System.out.println("Enter your phone number.");
-		String phoneNumber = sc.nextLine();
+		userDetail.userRegistrationDetails();
 		System.out.println("Thank you for registering!\n");
 
 		userDetail.updateLoginDetails();
@@ -101,19 +94,19 @@ public class MainCruiseBookingClass {
 		for (int i = 0; i < cruiseDetails.length; i++) {
 			if (selectCruiseShips.equals(cruiseDetails[i].cruiseName)) {
 
-				double adultFare = cruiseDetails[i].cruiseAdultFare(numberOfAdults);
+				cruiseDetails[i].cruiseAdultFare(numberOfAdults);
 
 				for (int j = 0; j < arrayAgeOfChild.length; j++) {
 					if (arrayAgeOfChild[j] < 5) {
 						numberOfChildren = numberOfChildren - 1;
 					}
 				}
-				double childFare = cruiseDetails[i].cruiseChildFare(numberOfChildren);
+				cruiseDetails[i].cruiseChildFare(numberOfChildren);
 
 				if (dinnerBuffetMeal.equalsIgnoreCase("Yes")) {
-					double adultBuffet = cruiseDetails[i].adultBuffetMealFare(numberOfAdults);
+					cruiseDetails[i].adultBuffetMealFare(numberOfAdults);
 
-					double childBuffet = cruiseDetails[i].childBuffetMealFare(numberOfChildren);
+					cruiseDetails[i].childBuffetMealFare(numberOfChildren);
 
 					notInList = 0;
 
@@ -149,19 +142,19 @@ public class MainCruiseBookingClass {
 			String changeInformation = sc.next();
 
 			if (changeInformation.equals("1") || changeInformation.equalsIgnoreCase("Password")) {
-				userDetail.setPassword("123xyz@abc", "abcxyz@123");
+				userDetail.validatePassword("123xyz@abc", "abcxyz@123");
 			} else if (changeInformation.equals("2") || changeInformation.equalsIgnoreCase("Phonenumber")) {
 
-				userDetail.setPhoneNumber("4561237890", "5762341234");
+				userDetail.validatePhoneNumber("4561237890", "5762341234");
 
 			} else if (changeInformation.equals("3") || changeInformation.equalsIgnoreCase("Email")) {
 
-				userDetail.setEmail("abcd@email.com", "acgh@email.com");
+				userDetail.validateEmail("abcd@email.com", "acgh@email.com");
 
 			} else {
 				attempt++;
 				System.out.println("Not in the list.Please try again.");
-//				System.exit(0);
+
 			}
 
 		} while (attempt < 3);
