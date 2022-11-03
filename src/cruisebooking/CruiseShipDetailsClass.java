@@ -6,11 +6,11 @@ public class CruiseShipDetailsClass {
 	double adultFare;
 	double childFare;
 	int days;
-	double buffetAdultFare;
-	double buffetChildFare;
-	double totalPrice;
-	double hst;
-	double finalPrice;
+	private double buffetAdultFare;
+	private double buffetChildFare;
+	private double totalPrice;
+	private double hst;
+	private double finalPrice;
 
 	public CruiseShipDetailsClass(String nameOfCruise, double adultFee, double kidsFare, int numOfDays) {
 
