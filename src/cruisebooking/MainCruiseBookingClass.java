@@ -7,11 +7,18 @@ public class MainCruiseBookingClass {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		UserDetailClass userDetail = new UserDetailClass("abcd@email.com", "123xyz@abc", "John Doe", "4561237890");
-
+		UserDetailClass userDetail = new UserDetailClass("abcd1@email.com", "123XYZ@abc", "John Doe", "4561237890");
+		String emailId = "";
+		String password = "";
+		String fullName = "";
+		String phoneNumber = "";
 		System.out.println("Welcome to Cruise booking.\n");
 		System.out.println("Please sign up to book a cruise.\n");
-		userDetail.userRegistrationDetails();
+		userDetail.validateEmailId(emailId);
+		userDetail.validatePassword(password);
+		userDetail.validateFullName(fullName);
+		userDetail.validatePhoneNumber(phoneNumber);
+//		userDetail.userRegistrationDetails();
 		System.out.println("Thank you for registering!\n");
 
 		userDetail.updateLoginDetails();
