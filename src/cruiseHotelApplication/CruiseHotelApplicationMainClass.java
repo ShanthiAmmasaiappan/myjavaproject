@@ -144,7 +144,7 @@ public class CruiseHotelApplicationMainClass {
 					suiteSelection = sc.next();
 
 					if (suiteSelection.equalsIgnoreCase(deluxeSuite.hotelName)) {
-						deluxeSuite.numberOfGuestDeluxSuite(suiteSelection);
+						deluxeSuite.numberOfGuestDeluxeSuite(suiteSelection);
 
 						days = deluxeSuite.days;
 						numberOfAdult = deluxeSuite.numberOfAdult;
