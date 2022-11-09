@@ -16,30 +16,6 @@ public class HotelBookingClass extends UserDetailsClass {
 	double finalPrice;
 	String bookLunch;
 	Scanner sc = new Scanner(System.in);
-	
-
-//	void numberOfGuest(String suiteSelection) {
-//		do {
-//			System.out.println("Please enter the number of adults:");
-//			numberOfAdult = sc.nextInt();
-//			System.out.println("Please enter the number of children:");
-//			numberOfChildren = sc.nextInt();
-//			roomCapacity = numberOfAdult + numberOfChildren;
-//			if ((roomCapacity <= 4 && suiteSelection.equalsIgnoreCase("DeluxeSuite"))
-//					|| (roomCapacity <= 8 && suiteSelection.equalsIgnoreCase("FamilySuite"))) {
-//
-//				System.out.println("Enter the number of days of stay");
-//				days = sc.nextInt();
-//				break;
-//			} else if (roomCapacity > 4 || roomCapacity > 8) {
-//
-//				System.out.println(" The room is not suitable for the number of guests.");
-//			}
-//			System.out.println("Please select again.");
-//
-//		} while (!(roomCapacity > 4 && suiteSelection.equalsIgnoreCase("Deluxe Suite"))
-//				|| (roomCapacity > 8 && suiteSelection.equalsIgnoreCase("Family Suite")));
-//	}
 
 	boolean addLunchPreBooking(String bookLunch, int days) {
 
