@@ -1,4 +1,4 @@
-package cruiseHotelApplication;
+package cruisehotelApplication;
 
 import java.util.Scanner;
 

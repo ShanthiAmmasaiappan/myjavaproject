@@ -14,7 +14,7 @@ public class UserDetailClass {
 	int count = 3;
 	int numberOfAttempt = 0;
 
-	public UserDetailClass(String emailId, String pasword, String fulname, String phoneNumber) {
+	 UserDetailClass(String emailId, String pasword, String fulname, String phoneNumber) {
 
 		this.emailId = emailId;
 		this.passWord = pasword;
@@ -22,13 +22,15 @@ public class UserDetailClass {
 		this.phoNumber = phoneNumber;
 	}
 
-	Scanner sc = new Scanner(System.in);
+	
+	
+	 Scanner sc = new Scanner(System.in);
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
 
-	boolean validateEmailId(String emailId) {
+	 boolean validateEmailId(String emailId) {
 		boolean isEmailValid;
 		do {
 			System.out.println("Enter your email address:");
@@ -49,11 +51,11 @@ public class UserDetailClass {
 		this.passWord = password;
 	}
 
-	boolean validatePassword(String password) {
+	 boolean validatePassword(String password) {
 		boolean isPasswordValid;
 		do {
 			System.out.println("Enter the password that you want to use.");
-			passWord = sc.nextLine();
+			password = sc.nextLine();
 
 			if (passWord
 					.matches("^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "((?=\\S+$).{8,20})$")) {
@@ -71,11 +73,11 @@ public class UserDetailClass {
 		this.fullName = fulName;
 	}
 
-	boolean validateFullName(String fulName) {
+	 boolean validateFullName(String fulname) {
 		boolean isFullNameValid;
 		do {
 			System.out.println("Enter your Full Name.");
-			fullName = sc.nextLine();
+			fulname = sc.nextLine();
 
 			if (fullName.matches("^((?=.*[a-z])(?=.*[A-Z]).{8,20})$")) {
 				isFullNameValid = true;
@@ -92,11 +94,11 @@ public class UserDetailClass {
 		this.phoNumber = phoneNumber;
 	}
 
-	boolean validatePhoneNumber(String phoneNumber) {
+	 boolean validatePhoneNumber(String phoneNumber) {
 		boolean isPhoneNumberValid;
 		do {
 			System.out.println("Enter your phone number.");
-			phoNumber = sc.nextLine();
+			phoneNumber = sc.nextLine();
 
 			if (phoNumber.matches("^(\\+\\d{1,3}[- ]?)?\\d{10}$")) {
 				isPhoneNumberValid = true;
@@ -110,13 +112,13 @@ public class UserDetailClass {
 
 	}
 
-	void updateLoginDetails() {
+	 void updateLoginDetails() {
 		do {
 			System.out.println("Please enter the Username/email:");
 			username = sc.nextLine();
 			System.out.println("Enter the password .");
 			password = sc.nextLine();
-			do {
+
 				if ((this.emailId.equalsIgnoreCase(username) || this.fullName.equals(username))
 						&& this.passWord.equals(password)) {
 					System.out.println("Login is successful.\n");
@@ -124,26 +126,27 @@ public class UserDetailClass {
 				} else {
 					count--;
 					System.out.println("Username and Password doesnot match.");
-					break;
+//					break;
 				}
-			} while (!(this.emailId.equalsIgnoreCase(username) || this.fullName.equals(username)));
+
 
 			if (count < 1) {
 				System.out.println("Verify your login details.");
 				System.exit(0);
 			}
-		} while (!(this.emailId.equalsIgnoreCase(username) || this.fullName.equals(username))
-				&& this.passWord.equals(password));
+		} while (!(this.emailId.equalsIgnoreCase(username) || this.fullName.equals(username)
+				&& this.passWord.equals(password)));
 		System.out.println("Press 'Y' to continue");
 		String enter = sc.nextLine();
 		if (enter.equalsIgnoreCase("Y")) {
+			
 		} else {
 			System.exit(0);
 		}
 
 	}
 
-	public void validatePassword(String existingPassword, String newPassword) {
+	 void validatePassword(String existingPassword, String newPassword) {
 
 		do {
 			System.out.println("Enter your existing password ");
@@ -175,7 +178,7 @@ public class UserDetailClass {
 
 	}
 
-	public void validatePhoneNumber(String existingPhoneNumber, String newPhoneNumber) {
+	 void validatePhoneNumber(String existingPhoneNumber, String newPhoneNumber) {
 		do {
 			System.out.println("Enter your existing phonenumber ");
 			existingPhoneNumber = sc.next();
@@ -205,7 +208,7 @@ public class UserDetailClass {
 
 	}
 
-	public void validateEmail(String existingEmail, String newEmail) {
+	 void validateEmail(String existingEmail, String newEmail) {
 		do {
 			System.out.println("Enter your existing email ");
 			existingEmail = sc.next();
@@ -237,5 +240,7 @@ public class UserDetailClass {
 		System.exit(0);
 
 	}
+
+	
 
 }

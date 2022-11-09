@@ -3,6 +3,8 @@ package student.guess.game;
 import java.util.Scanner;
 
 public class HangManGameClass {
+	
+	
 
 	boolean wannaPlayNewGame() {
 

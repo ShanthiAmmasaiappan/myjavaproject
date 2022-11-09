@@ -1,4 +1,4 @@
-package cruiseHotelApplication;
+package cruisehotelApplication;
 
 public class DeluxeSuiteclass extends HotelBookingClass {
 	String hotelName = "DeluxeSuite";

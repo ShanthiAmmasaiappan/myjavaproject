@@ -17,8 +17,9 @@ public class MainCruiseBookingClass {
 		userDetail.validateEmailId(emailId);
 		userDetail.validatePassword(password);
 		userDetail.validateFullName(fullName);
-		userDetail.validatePhoneNumber(phoneNumber);
-//		userDetail.userRegistrationDetails();
+		userDetail.validatePhoneNumber(phoneNumber);	
+				
+
 		System.out.println("Thank you for registering!\n");
 
 		userDetail.updateLoginDetails();

@@ -1,11 +1,10 @@
-package cruiseHotelApplication;
+package cruisehotelApplication;
 
 import java.util.Scanner;
 
 public class CruiseHotelApplicationMainClass {
 
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
 
 		UserDetailsClass userDetail = new UserDetailsClass();
@@ -123,8 +122,9 @@ public class CruiseHotelApplicationMainClass {
 					if (bookTheService.equalsIgnoreCase("hotel")) {
 						System.out.println("Please enter the suite you want to select. \n");
 
-						System.out.println(deluxeSuite.hotelName + " : accommodates " + deluxeSuite.noOfAdult + " adults "
-								+ deluxeSuite.noOfChild + " children at the rate of $" + deluxeSuite.rate + "/night \n");
+						System.out.println(deluxeSuite.hotelName + " : accommodates " + deluxeSuite.noOfAdult
+								+ " adults " + deluxeSuite.noOfChild + " children at the rate of $" + deluxeSuite.rate
+								+ "/night \n");
 						System.out.println(familySuite.hotelName + " : accommodates " + familySuite.noOfAdult
 								+ " adults " + familySuite.noOfChild + " children at the rate of $" + familySuite.rate
 								+ "/night \n");

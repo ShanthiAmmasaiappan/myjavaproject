@@ -1,4 +1,4 @@
-package cruiseHotelApplication;
+package cruisehotelApplication;
 
 public class FamilySuiteClass extends HotelBookingClass {
 

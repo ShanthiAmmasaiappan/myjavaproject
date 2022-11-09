@@ -1,12 +1,9 @@
 package student.guess.game;
 
-import java.util.Scanner;
-
 import java.io.File;
-
 import java.io.IOException;
 import java.util.Random;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class HangManGameMainClass {
 
@@ -16,20 +13,19 @@ public class HangManGameMainClass {
 
 		Scanner sc = new Scanner(System.in);
 
-		ArrayList<String> storeNameListFile = new ArrayList<String>();
-
+		String[] arrayNameList = new String[14];
+		int i = 0;
 		Scanner scnr = null;
 		try {
 
-			File f = new File("C:\\Users\\ShanthiAmmasaiappan\\Desktop\\Shanthi\\NameList.txt");
-			scnr = new Scanner(f);
-
-			String sr;
+			File readFile = new File("C:\\Users\\ShanthiAmmasaiappan\\Desktop\\Shanthi\\NameList.txt");
+			scnr = new Scanner(readFile);
+//			https://www.daniweb.com/programming/software-development/threads/414205/java-read-text-files-and-store-them-as-arrays
 			while (scnr.hasNext()) {
-				sr = scnr.next();
-				storeNameListFile.add(sr);
-
+				arrayNameList[i] = scnr.nextLine();
+				i++;
 			}
+
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -46,8 +42,7 @@ public class HangManGameMainClass {
 
 			// Guess a name: Choose a random number to pick a name from the list of names
 
-			String[] array = storeNameListFile.toArray(new String[0]);
-			String guessedName = array[rand.nextInt(randomNumberGenerator)];
+			String guessedName = arrayNameList[rand.nextInt(randomNumberGenerator)];
 
 			System.out.println("The number of letters in the guessed student name is : " + guessedName.length());
 
@@ -62,20 +57,32 @@ public class HangManGameMainClass {
 				char letterEntered = sc.next().charAt(0);
 
 				boolean characterMatched = false;
+				
+				
+				for (int j = 0; j < maskedNameArray.length; j++) {
+
+					if (Character.toLowerCase(maskedNameArray[j]) == Character.toLowerCase(letterEntered)) {
+
+						
+					}
+				}
 
 				// checking the entered character with the guessed name
 				char[] nameToCharArray = guessedName.toCharArray();
-				for (int i = 0; i < nameToCharArray.length; i++) {
+				for (int j = 0; j < nameToCharArray.length; j++) {
 
-					if (Character.toLowerCase(nameToCharArray[i]) == Character.toLowerCase(letterEntered)) {
+					if (Character.toLowerCase(nameToCharArray[j]) == Character.toLowerCase(letterEntered)) {
 
-						maskedNameArray[i] = letterEntered;
+						maskedNameArray[j] = letterEntered;
 						characterMatched = true;
 					}
 				}
 
 				// if entered character is not matching then add to the incorrect letters string
-				if (characterMatched == false) {
+				if (characterMatched == false  ) {
+					if(incorrectLetter.equals(new String(new char[] {letterEntered}))) {
+						System.out.println("This letter is already guessed");
+					}
 					incorrectLetter = incorrectLetter + " " + letterEntered;
 					numberOfAttempts++;
 					points--;
@@ -84,10 +91,6 @@ public class HangManGameMainClass {
 				// display the result with number of attempts remaining
 				System.out.println("You have guessed " + numberOfAttempts + " times wrong letters:" + incorrectLetter);
 				System.out.println("The points you scored is " + points + " points");
-				if (points == 0) {
-					System.out.println("Game over");
-					System.exit(0);
-				}
 
 				// display the masked character + correctly entered characters
 				System.out.println(String.valueOf(maskedNameArray));

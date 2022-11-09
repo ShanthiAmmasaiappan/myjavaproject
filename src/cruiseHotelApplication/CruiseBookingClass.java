@@ -1,4 +1,4 @@
-package cruiseHotelApplication;
+package cruisehotelApplication;
 
 public class CruiseBookingClass extends UserDetailsClass {
 
@@ -84,3 +84,5 @@ public class CruiseBookingClass extends UserDetailsClass {
 	}
 
 }
+
+

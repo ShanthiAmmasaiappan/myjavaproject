@@ -1,4 +1,4 @@
-package cruiseHotelApplication;
+package cruisehotelApplication;
 
 public class SunsetCruiseClass extends CruiseBookingClass {
 	String cruise;

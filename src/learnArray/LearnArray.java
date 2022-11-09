@@ -9,6 +9,7 @@ public class LearnArray {
 		numList[1]=4;
 		String[] nameList = {"x","y","w","n","Shanthi","z","i"};
 		System.out.println("array output");
+//		This is the better way for(int i=0; i<nameList.length;i++)
 		for(int i=0; i<=nameList.length-1;i++) {
 			
 			System.out.println(nameList[i]);
