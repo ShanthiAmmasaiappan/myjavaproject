@@ -1,4 +1,4 @@
-package cruisehotelApplication;
+package cruiseHotelApplication;
 
 import java.util.Scanner;
 
@@ -16,27 +16,18 @@ public class CruiseHotelApplicationMainClass {
 		DiscoveryCruiseClass discoveryCruise = new DiscoveryCruiseClass("DiscoveryCruise", 39.99, 9.99, 4);
 		MysteryCruiseClass mysteryCruise = new MysteryCruiseClass("MysteryCruise", 45.99, 12.99, 2);
 
+		CruiseBookingClass[] cruiseDetail = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
+		CruiseBookingClass cruiseBooking = null;
+
 		System.out.println("Welcome to makeMyTrip.com \n");
 		System.out.println("Please sign up to book a service. \n");
-		userDetail.validateEmailId();
-		userDetail.validatePassword();
-		userDetail.validateFullName();
-		userDetail.validatePhoneNumber();
-
+		userDetail.userRegisterationvalidation();
 		System.out.println("Thank you for registering!\n");
-
 		userDetail.updateLoginDetails();
 
-		String suiteSelection = "";
-		String cruiseSelection = "";
-		String input;
-		String bookTheService;
-		String selection = "";
+		String suiteSelection = "", cruiseSelection = "", input, bookTheService, selection = "";
 		int notInList = 0;
-		int days;
-		int numberOfAdult;
-		int numberOfChildren;
-		int rate;
+		int numberOfAdult, numberOfChildren, rate;
 		int attempt = 0;
 
 		do {
@@ -46,82 +37,70 @@ public class CruiseHotelApplicationMainClass {
 				if (bookTheService.equalsIgnoreCase("cruise")) {
 					System.out.println(
 							"\nWe offer 4 different packages as displayed below. Please enter the cruise that you want to select. \n");
-					System.out.println(scenicCruise.cruise);
-					System.out.println(sunsetCruise.cruise);
-					System.out.println(discoveryCruise.cruise);
-					System.out.println(mysteryCruise.cruise);
+					for (int i = 0; i < cruiseDetail.length; i++) {
+						System.out.println(cruiseDetail[i].cruise);
+					}
+
 					do {
 						System.out.println("\nPlease select the cruise. \n");
 						cruiseSelection = sc.next();
-						if (cruiseSelection.equalsIgnoreCase("ScenicCruise")) {
-							scenicCruise.scenicCruiseSelection(cruiseSelection);
-						} else if (cruiseSelection.equalsIgnoreCase("SunsetCruise")) {
-							sunsetCruise.sunsetCruiseSelection(cruiseSelection);
-						} else if (cruiseSelection.equalsIgnoreCase("DiscoveryCruise")) {
-							discoveryCruise.discoveryCruiseSelection(cruiseSelection);
-						} else if (cruiseSelection.equalsIgnoreCase("MysteryCruise")) {
-							mysteryCruise.mysteryCruiseSelection(cruiseSelection);
-
-							notInList = 0;
-
-						} else {
-							notInList = 1;
+						for (int i = 0; i < cruiseDetail.length; i++) {
+							if (cruiseSelection.equalsIgnoreCase(cruiseDetail[i].cruise)) {							
+								System.out.println("The cruise that you have selected is " + cruiseSelection
+										+ " which is a " + cruiseDetail[i].days + " day cruise ");
+								System.out.println("Price for Adults(greater than 12)     : "
+										+ cruiseDetail[i].adultFare + " per day");
+								System.out.println(
+										"Price for kids(above 5)     : " + cruiseDetail[i].childFare + " per day");
+								notInList = 0;
+								break;
+							} else {
+								notInList = 1;
+							}
 						}
-
 						if (notInList == 1) {
-							System.out.println("Invalid entry. Please try again.");
+							System.out.println("Invalid entry. Please start over.");
 							System.exit(0);
 						}
 						System.out.println(
-								"\nPlease press Y if you want to continue with the selection or press any other alphabet to select another.");
+								"Please press Y if you want to continue with the selection or press any other alphabet to select another.");
 						selection = sc.next();
 					} while (!selection.equalsIgnoreCase("y"));
+
 					do {
 						System.out.println("Enter the number of adults");
 						numberOfAdult = sc.nextInt();
-
 					} while (numberOfAdult == 0);
 
 					System.out.println("Enter the number of children");
 					numberOfChildren = sc.nextInt();
-
+					
 					if (cruiseSelection.equalsIgnoreCase("ScenicCruise")) {
-						scenicCruise.totalAdultFare(numberOfAdult);
-						scenicCruise.totalChildFare(numberOfChildren);
-						scenicCruise.spaServiceAvailable(numberOfAdult);
 						scenicCruise.finalCruisePriceCalculation(cruiseSelection, numberOfAdult, numberOfChildren);
+						scenicCruise.spaServiceAvailable(numberOfAdult);
 						scenicCruise.scenicCruiseFinalCalculation();
 						break;
 					} else if (cruiseSelection.equalsIgnoreCase("SunsetCruise")) {
-						sunsetCruise.totalAdultFare(numberOfAdult);
-						sunsetCruise.totalChildFare(numberOfChildren);
-						sunsetCruise.candleLightDinner(numberOfAdult);
 						sunsetCruise.finalCruisePriceCalculation(cruiseSelection, numberOfAdult, numberOfChildren);
+						sunsetCruise.candleLightDinner(numberOfAdult);
 						sunsetCruise.sunsetCruiseFinalCalculation();
 						break;
 					} else if (cruiseSelection.equalsIgnoreCase("DiscoveryCruise")) {
-						discoveryCruise.totalAdultFare(numberOfAdult);
-						discoveryCruise.totalChildFare(numberOfChildren);
-						discoveryCruise.adventureGames(numberOfAdult);
 						discoveryCruise.finalCruisePriceCalculation(cruiseSelection, numberOfAdult, numberOfChildren);
+						discoveryCruise.adventureGames(numberOfAdult);
 						discoveryCruise.discoveryCruiseFinalCalculation();
 						break;
 					} else if (cruiseSelection.equalsIgnoreCase("MysteryCruise")) {
-						mysteryCruise.totalAdultFare(numberOfAdult);
-						mysteryCruise.totalChildFare(numberOfChildren);
-						mysteryCruise.exploreCasino(numberOfAdult);
 						mysteryCruise.finalCruisePriceCalculation(cruiseSelection, numberOfAdult, numberOfChildren);
+						mysteryCruise.exploreCasino(numberOfAdult);
 						mysteryCruise.mysteryCruiseFinalCalculation();
 						notInList = 0;
 						break;
-
 					}
-
 				}
 				do {
 					if (bookTheService.equalsIgnoreCase("hotel")) {
 						System.out.println("Please enter the suite you want to select. \n");
-
 						System.out.println(deluxeSuite.hotelName + " : accommodates " + deluxeSuite.noOfAdult
 								+ " adults " + deluxeSuite.noOfChild + " children at the rate of $" + deluxeSuite.rate
 								+ "/night \n");
@@ -129,49 +108,29 @@ public class CruiseHotelApplicationMainClass {
 								+ " adults " + familySuite.noOfChild + " children at the rate of $" + familySuite.rate
 								+ "/night \n");
 						notInList = 0;
-
-					}
-
-					else {
+					} else {
 						notInList = 1;
 					}
-
 					if (notInList == 1) {
 						System.out.println("Invalid entry. Please try again.");
 						break;
-
 					}
 					suiteSelection = sc.next();
 
-					if (suiteSelection.equalsIgnoreCase(deluxeSuite.hotelName)) {
-						deluxeSuite.numberOfGuestDeluxeSuite(suiteSelection);
+					if (suiteSelection.equalsIgnoreCase(deluxeSuite.getHotelName())) {
+						rate = deluxeSuite.getRate();
+						deluxeSuite.hotelFinalReceipt(suiteSelection, rate);
 
-						days = deluxeSuite.days;
-						numberOfAdult = deluxeSuite.numberOfAdult;
-						numberOfChildren = deluxeSuite.numberOfChildren;
-						rate = deluxeSuite.rate;
-
-						deluxeSuite.hotelFinalReceipt(suiteSelection, numberOfAdult, numberOfChildren, days, rate);
-
-					} else if (suiteSelection.equalsIgnoreCase(familySuite.hotelName)) {
-						familySuite.numberOfGuestFamilySuite(suiteSelection);
-
-						numberOfAdult = familySuite.numberOfAdult;
-						numberOfChildren = familySuite.numberOfChildren;
-						rate = familySuite.rate;
-						days = familySuite.days;
-
-						familySuite.hotelFinalReceipt(suiteSelection, numberOfAdult, numberOfChildren, days, rate);
-
+					} else if (suiteSelection.equalsIgnoreCase(familySuite.getHotelName())) {
+						rate = familySuite.getRate();
+						familySuite.hotelFinalReceipt(suiteSelection, rate);
 						notInList = 0;
 						break;
 					} else {
 						notInList = 1;
 					}
-
 					if (notInList == 1) {
 						System.out.println("Invalid entry. Please try again.");
-
 					}
 				} while (!(suiteSelection.equalsIgnoreCase(familySuite.hotelName)
 						|| suiteSelection.equalsIgnoreCase(deluxeSuite.hotelName)));
@@ -183,14 +142,11 @@ public class CruiseHotelApplicationMainClass {
 			if (input.equalsIgnoreCase("N")) {
 				break;
 			}
-
 		} while (input.equalsIgnoreCase("Y"));
 
 		System.out.println(
 				"Do you want to change your personal information? Press Y to change. Press any other alphabet to exit.");
-
 		String changeInfo = sc.next();
-
 		if (changeInfo.equalsIgnoreCase("Y")) {
 
 		} else {
@@ -204,27 +160,17 @@ public class CruiseHotelApplicationMainClass {
 				System.out.println(information[i]);
 			}
 			String changeInformation = sc.next();
-
 			if (changeInformation.equals("1") || changeInformation.equalsIgnoreCase("Password")) {
 				userDetail.validatePassword("123xyz@abc", "abcxyz@123");
 			} else if (changeInformation.equals("2") || changeInformation.equalsIgnoreCase("Phonenumber")) {
-
 				userDetail.validatePhoneNumber("4561237890", "5762341234");
-
 			} else if (changeInformation.equals("3") || changeInformation.equalsIgnoreCase("Email")) {
-
 				userDetail.validateEmail("abcd@email.com", "acgh@email.com");
-
 			} else {
 				attempt++;
 				System.out.println("Not in the list.Please try again.");
-
 			}
-
 		} while (attempt < 3);
-
 		System.exit(0);
-
 	}
-
 }

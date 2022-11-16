@@ -1,20 +1,14 @@
-package cruisehotelApplication;
+package cruiseHotelApplication;
 
 import java.util.Scanner;
 
 public class UserDetailsClass {
-	private String emailID;
-	private String passWord;
-	private String fullName;
-	private String phoNumber;
-	protected String username;
-	protected String password;
+	private String emailID, passWord, fullName, phoNumber;	
 	int noMatch = 0;
 	int count = 3;
 	int numberOfAttempt = 0;
 
 	protected UserDetailsClass() {
-
 		this.emailID = "abcd1@email.com";
 		this.passWord = "123XYZ@abc";
 		this.fullName = "John Doe";
@@ -23,108 +17,83 @@ public class UserDetailsClass {
 
 	Scanner sc = new Scanner(System.in);
 
-	protected void setEmailId(String emailId) {
-		this.emailID = emailId;
+	protected void setEmailID(String emailID) {
+		this.emailID = emailID;
 	}
 
-	boolean validateEmailId() {
-		boolean isEmailValid;
-		do {
-			System.out.println("Enter your email address:");
-			emailID = sc.nextLine();
-
-			if (emailID.matches("^[a-zA-Z0-9_.]+@[a-zA-Z.]+?\\.[a-zA-Z]{2,3}$")) {
-
-				isEmailValid = true;
-			} else {
-				System.out.println("Please enter an valid email with '@' and'.'");
-				isEmailValid = false;
-			}
-		} while (!emailID.matches("^[a-zA-Z0-9_.]+@[a-zA-Z.]+?\\.[a-zA-Z]{2,3}$"));
-		return isEmailValid;
+	protected void setPassWord(String passWord) {
+		this.passWord = passWord;
 	}
 
-	protected void setPassWord(String password) {
-		this.passWord = password;
+	protected void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	boolean validatePassword() {
-		boolean isPasswordValid;
-		do {
-			System.out.println("Enter the password that you want to use.");
-			passWord = sc.nextLine();
-
-			if (passWord
-					.matches("^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "((?=\\S+$).{8,20})$")) {
-				isPasswordValid = true;
-			} else {
-				System.out.println("Doesnot contain the matches (a-z),(A-Z),(0-9) and 1 special character");
-				isPasswordValid = false;
-
-			}
-		} while (!passWord.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])((?=\\S+$).{8,20})$"));
-		return isPasswordValid;
+	protected void setPhoNumber(String phoNumber) {
+		this.phoNumber = phoNumber;
 	}
 
-	protected void setFullname(String fulName) {
-		this.fullName = fulName;
+	private void validateEmailId() {
+		System.out.println("Enter your email address:");
+		String emailId = sc.nextLine();
+		while (!emailId.matches("^[a-zA-Z0-9_.]+@[a-zA-Z.]+?\\.[a-zA-Z]{2,3}$")) {
+			System.out.println("Please enter an valid email with '@' and'.'");
+			emailId = sc.nextLine();
+		}
 	}
 
-	boolean validateFullName() {
-		boolean isFullNameValid;
-		do {
-			System.out.println("Enter your Full Name.");
-			fullName = sc.nextLine();
+	private void validatePassword() {
 
-			if (fullName.matches("^((?=.*[a-z])(?=.*[A-Z]).{8,20})$")) {
-				isFullNameValid = true;
-			} else {
-				System.out.println("Doesnot contain the matches (a-z),(A-Z) and character between 8 - 20.");
-				isFullNameValid = false;
+		System.out.println("Enter the password that you want to use.");
+		String password = sc.nextLine();
+		while (!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])((?=\\S+$).{8,20})$")) {
+			System.out.println(
+					"A password should contain the matches (a-z),(A-Z),(0-9) and 1 special character. Please try again");
+			password = sc.nextLine();
+		}
 
-			}
-		} while (!fullName.matches("^((?=.*[a-z])(?=.*[A-Z]).{8,20})$"));
-		return isFullNameValid;
 	}
 
-	protected void setPhoneNumber(String phoneNumber) {
-		this.phoNumber = phoneNumber;
+	private void validateFullName() {
+
+		System.out.println("Enter your Full Name.");
+		String fulName = sc.nextLine();
+		while (!fulName.matches("^((?=.*[a-z])(?=.*[A-Z]).{8,20})$")) {
+			System.out.println("A name should be of 8 -20 characters. Please try again");
+			fulName = sc.nextLine();
+		}
 	}
 
-	boolean validatePhoneNumber() {
-		boolean isPhoneNumberValid;
-		do {
-			System.out.println("Enter your phone number.");
-			phoNumber = sc.nextLine();
+	private void validatePhoneNumber() {	
+		System.out.println("Enter your phone number.");
+		String phoneNumber = sc.nextLine();
+		while (!phoneNumber.matches("^(\\+\\d{1,3}[- ]?)?\\d{10}$")) {
+			System.out.println("A phone number should be of 10 digits. Please try again");
+			phoneNumber = sc.nextLine();
+		}
+	}
 
-			if (phoNumber.matches("^(\\+\\d{1,3}[- ]?)?\\d{10}$")) {
-				isPhoneNumberValid = true;
-			} else {
-				System.out.println("Doesnot contain the matches of length 10.");
-				isPhoneNumberValid = false;
-
-			}
-		} while (!phoNumber.matches("^(\\+\\d{1,3}[- ]?)?\\d{10}$"));
-		return isPhoneNumberValid;
-
+	public void userRegisterationvalidation() {
+		validateEmailId();
+		validatePassword();
+		validateFullName();
+		validatePhoneNumber();
 	}
 
 	protected void updateLoginDetails() {
+		String username;
+		String password;
 		do {
 			System.out.println("Please enter the Username/email:");
 			username = sc.nextLine();
 			System.out.println("Enter the password .");
 			password = sc.nextLine();
-
 			if ((emailID.equalsIgnoreCase(username) || fullName.equals(username)) && passWord.equals(password)) {
 				System.out.println("Login is successful.\n");
-
 			} else {
 				count--;
 				System.out.println("Username and Password doesnot match.");
-
 			}
-
 			if (count < 1) {
 				System.out.println("Verify your login details.");
 				System.exit(0);
@@ -136,10 +105,9 @@ public class UserDetailsClass {
 		} else {
 			System.exit(0);
 		}
-
 	}
 
-	void validatePassword(String existingPassword, String newPassword) {
+	protected void validatePassword(String existingPassword, String newPassword) {
 
 		do {
 			System.out.println("Enter your existing password ");
@@ -161,17 +129,14 @@ public class UserDetailsClass {
 				noMatch = 1;
 				System.out.println("Password doesnot match.Please try again");
 			}
-
 			if (noMatch == 1) {
-
 			}
 		} while (numberOfAttempt < 3);
 		System.out.println("Thank you for using the service!");
 		System.exit(0);
-
 	}
 
-	void validatePhoneNumber(String existingPhoneNumber, String newPhoneNumber) {
+	protected void validatePhoneNumber(String existingPhoneNumber, String newPhoneNumber) {
 		do {
 			System.out.println("Enter your existing phonenumber ");
 			existingPhoneNumber = sc.next();
@@ -191,17 +156,14 @@ public class UserDetailsClass {
 				noMatch = 1;
 				System.out.println("Phonenumber doesnot match.Please try again");
 			}
-
 			if (noMatch == 1) {
-
 			}
 		} while (numberOfAttempt < 3);
 		System.out.println("Thank you for using the service!");
 		System.exit(0);
-
 	}
 
-	void validateEmail(String existingEmail, String newEmail) {
+	protected void validateEmail(String existingEmail, String newEmail) {
 		do {
 			System.out.println("Enter your existing email ");
 			existingEmail = sc.next();
@@ -212,26 +174,19 @@ public class UserDetailsClass {
 				System.out.println("Entered Email already exist.Please try again");
 			} else if (!newEmail.matches("^[a-zA-Z0-9_.]+@[a-zA-Z.]+?\\.[a-zA-Z]{2,3}$")) {
 				System.out.println("Please enter an valid email with '@' and'.'. Please try again");
-			}
-
-			else if (emailID.equals(existingEmail)) {
+			} else if (emailID.equals(existingEmail)) {
 				emailID = newEmail;
 				System.out.println("Your email has been changed!");
 				noMatch = 0;
 				break;
-
 			} else {
 				noMatch = 1;
 				System.out.println("Email doesnot match.Please try again");
 			}
-
 			if ((noMatch == 1)) {
-
 			}
 		} while (numberOfAttempt < 3);
 		System.out.println("Thank you for using the service!");
 		System.exit(0);
-
 	}
-
 }

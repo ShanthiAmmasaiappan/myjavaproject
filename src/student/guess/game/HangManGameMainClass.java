@@ -1,7 +1,10 @@
 package student.guess.game;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -57,13 +60,11 @@ public class HangManGameMainClass {
 				char letterEntered = sc.next().charAt(0);
 
 				boolean characterMatched = false;
-				
-				
+
 				for (int j = 0; j < maskedNameArray.length; j++) {
 
 					if (Character.toLowerCase(maskedNameArray[j]) == Character.toLowerCase(letterEntered)) {
 
-						
 					}
 				}
 
@@ -79,8 +80,8 @@ public class HangManGameMainClass {
 				}
 
 				// if entered character is not matching then add to the incorrect letters string
-				if (characterMatched == false  ) {
-					if(incorrectLetter.equals(new String(new char[] {letterEntered}))) {
+				if (characterMatched == false) {
+					if (incorrectLetter.equals(new String(new char[] { letterEntered }))) {
 						System.out.println("This letter is already guessed");
 					}
 					incorrectLetter = incorrectLetter + " " + letterEntered;

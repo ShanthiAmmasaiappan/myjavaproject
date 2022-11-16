@@ -13,9 +13,7 @@ public class variablesJava {
 		System.out.println(z+x);*/	
 		
 		
-		int num1 = 1;
-		float num2 = 1.35f;
-		double num3 = 2.3455;
+		
 		boolean isMilkAvailable = true;
 		boolean isEggAvailable = false;
 		System.out.println("Milk is available:"+isMilkAvailable);// string concatenation
