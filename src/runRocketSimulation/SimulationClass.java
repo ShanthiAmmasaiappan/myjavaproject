@@ -9,14 +9,14 @@ import java.util.StringTokenizer;
 //https://www.youtube.com/watch?v=0l4Ha_FTMzU
 public class SimulationClass {
 
-//	Initializing the array list, to store the items
+	// Initializing the array list, to store the items
 	Item item = null;
+	private ArrayList<Item> itemList;
 
-	public ArrayList<Item> procureItems() throws IOException {
+	protected ArrayList<Item> procureItems() throws IOException {
 
-		ArrayList<Item> itemList = new ArrayList<Item>();
-
-		//// Read the file from the path specified
+		itemList = new ArrayList<Item>();
+		// Read the file from the path specified
 		File file = new File("C:\\Users\\ShanthiAmmasaiappan\\Desktop\\Shanthi\\phase-1.txt");
 		Scanner readFile = new Scanner(file);
 
@@ -32,20 +32,16 @@ public class SimulationClass {
 				itemList.add(item);
 			}
 		}
-
 		/*
-		 * for (int i = 0; i < itemList.size(); i++) {
-		 *  item = itemList.get(i);
+		 * for (int i = 0; i < itemList.size(); i++) { item = itemList.get(i);
 		 * System.out.println(item.getNameOfEquipment());
 		 * System.out.println(item.getWeightOfEquipment()); }
 		 */
-
 		return itemList;
-
 	}
 
-// pass arraylist object as function argument
-	public ArrayList<RocketClass> loadItemsInR1Rockets(ArrayList<Item> itemList) {
+	// pass arraylist object as method argument
+	protected ArrayList<RocketClass> loadItemsInR1Rockets(ArrayList<Item> itemList) {
 
 		ArrayList<RocketClass> r1Rockets = new ArrayList<RocketClass>();
 
@@ -53,21 +49,25 @@ public class SimulationClass {
 
 		while (itemsLeftToLoad) {
 
-			R1Class r1Rocket = new R1Class();
-			itemList = r1Rocket.loadItems(itemList);
-			r1Rockets.add(r1Rocket);
+			R1Class r1 = new R1Class();
+			// overwrite itemList with the remainig items(itemsNotLoaded)
+			itemList = r1.loadItems(itemList);
+			r1Rockets.add(r1);
 
 			if (itemList.size() <= 0) {
 				itemsLeftToLoad = false;
 			}
-
 		}
-		System.out.println("Number of R1 rockets: " + r1Rockets.size());
+		System.out.println("Number of R1 rockets: " + r1Rockets.size()+"\n");
+		/*int rocketIndex = 1;
+		for (RocketClass current_rocket : r1Rockets) {
+			System.out.println("weight of " + rocketIndex + " rocket in R1 - " + current_rocket.getCurrentWeight());
+			rocketIndex++;
+		}*/
 		return r1Rockets;
-
 	}
 
-	public ArrayList<RocketClass> loadItemsInR2Rocket(ArrayList<Item> itemList) {
+	protected ArrayList<RocketClass> loadItemsInR2Rocket(ArrayList<Item> itemList) {
 
 		ArrayList<RocketClass> r2Rockets = new ArrayList<>();
 
@@ -75,24 +75,27 @@ public class SimulationClass {
 
 		while (itemsLeftToLoad) {
 
-			R2Class r2Rocket = new R2Class();
-			itemList = r2Rocket.loadItems(itemList);
-			r2Rockets.add(r2Rocket);
+			R2Class r2 = new R2Class();
+			itemList = r2.loadItems(itemList);
+			r2Rockets.add(r2);
 
 			if (itemList.size() <= 0) {
 				itemsLeftToLoad = false;
 			}
 		}
+		System.out.println("Number of R2 rockets: " + r2Rockets.size()+"\n");
 
-		System.out.println("Number of R2 rockets: " + r2Rockets.size());
-
+		/*int rocketIndex = 1;
+		for (RocketClass current_rocket : r2Rockets) {
+			System.out.println("Weight of " + rocketIndex + " rocket in R2 - " + current_rocket.getCurrentWeight());
+			rocketIndex++;
+		}*/
 		return r2Rockets;
-
 	}
 
-	public int runSimulation(ArrayList<RocketClass> rockets) {
+	protected double runSimulation(ArrayList<RocketClass> rockets) {
 
-		int totalCost = 0;
+		double totalCost = 0;
 
 		for (RocketClass currentRocket : rockets) {
 			totalCost += currentRocket.getCost();
@@ -103,4 +106,5 @@ public class SimulationClass {
 		}
 		return totalCost;
 	}
+
 }
