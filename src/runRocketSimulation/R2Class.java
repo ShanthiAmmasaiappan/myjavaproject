@@ -17,7 +17,7 @@ public class R2Class extends RocketClass {
 		return getXPercentFailure(8);
 	}
 
-	public boolean getXPercentFailure(int percent) {
+	private boolean getXPercentFailure(int percent) {
 
 		return percent * (currentWeight / maxWeight) <= (Math.random() * 100) + 1;
 	}
