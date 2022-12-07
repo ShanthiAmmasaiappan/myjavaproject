@@ -18,7 +18,7 @@ public class PrimeNumber {
 		} else if (number == 2) {
 			System.out.println(number + " is the only even prime number");
 		} else {
-			for (int i = 2; i <= number / 2; ++i) {
+			for (int i = 2; i <= number / 2; i++) {
 				// condition for non-prime number
 				if (number % i == 0) {
 					System.out.println(number + " is not a prime number.");

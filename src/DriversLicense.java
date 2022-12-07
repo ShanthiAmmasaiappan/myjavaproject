@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class DriversLicense {
 
@@ -18,9 +19,11 @@ public class DriversLicense {
 //		else {
 //			System.out.println("The license is not issued");
 //		}
-		int agePerson = 16;
-
-		String theCurrentLevel = "G2";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the age");		
+		int agePerson = sc.nextInt();
+		System.out.println("Enter the current level");	
+		String theCurrentLevel = sc.next();
 		if (agePerson >= 16) {
 			if (theCurrentLevel == "No license") {
 

@@ -91,7 +91,7 @@ public class CruiseHotelApplicationMainClass {
 						discoveryCruise.discoveryCruiseFinalCalculation();
 						break;
 					} else if (cruiseSelection.equalsIgnoreCase("MysteryCruise")) {
-						mysteryCruise.finalCruisePriceCalculation(cruiseSelection, numberOfAdult, numberOfChildren);
+						mysteryCruise.finalCruisePriceCalculation(cruiseSelection, numberOfAdult, numberOfChildren);						
 						mysteryCruise.exploreCasino(numberOfAdult);
 						mysteryCruise.mysteryCruiseFinalCalculation();
 						notInList = 0;

@@ -7,10 +7,13 @@ public class LearnArray {
 		
 		int[] numList = {5,8,9,2,7};
 		numList[1]=4;
+		for(int i=0;i<numList.length;i++) {
+		System.out.println(numList[i]);
+		}
 		String[] nameList = {"x","y","w","n","Shanthi","z","i"};
 		System.out.println("array output");
-//		This is the better way for(int i=0; i<nameList.length;i++)
-		for(int i=0; i<=nameList.length-1;i++) {
+
+		for(int i=0; i<nameList.length;i++) {
 			
 			System.out.println(nameList[i]);
 		}

@@ -1,24 +1,22 @@
 /* Write a Program to Display Factors of a Number */
 package interviewjavaquestion;
 
+import java.util.Scanner;
+
 public class FactorsOfNumber {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int number = 60;
 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number");
+		int number = sc.nextInt();
 		System.out.print("Factors of " + number + " are: ");
-
-		// loop runs from 1 to 60
-		for (int i = 1; i <= number; ++i) {
-
-			// if number is divided by i
-			// i is the factor
+		for (int i = 1; i <= number; i++) {
 			if (number % i == 0) {
 				System.out.print(i + " ");
 			}
 		}
-
+		sc.close();
 	}
 
 }

@@ -17,7 +17,7 @@ public class SimulationClass {
 
 		itemList = new ArrayList<Item>();
 		// Read the file from the path specified
-		File file = new File("C:\\Users\\ShanthiAmmasaiappan\\Desktop\\Shanthi\\phase-1.txt");
+		File file = new File("C:\\Users\\16475\\Desktop\\Shanthi\\phase-1.txt");
 		Scanner readFile = new Scanner(file);
 
 		StringTokenizer token = null;

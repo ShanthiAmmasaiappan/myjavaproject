@@ -21,11 +21,11 @@ public class HangManGameMainClass {
 		Scanner scnr = null;
 		try {
 
-			File readFile = new File("C:\\Users\\ShanthiAmmasaiappan\\Desktop\\Shanthi\\NameList.txt");
+			File readFile = new File("C:\\Users\\16475\\Desktop\\Shanthi\\NameList.txt");
 			scnr = new Scanner(readFile);
 //			https://www.daniweb.com/programming/software-development/threads/414205/java-read-text-files-and-store-them-as-arrays
 			while (scnr.hasNext()) {
-				arrayNameList[i] = scnr.nextLine();
+				arrayNameList[i] = scnr.next();
 				i++;
 			}
 

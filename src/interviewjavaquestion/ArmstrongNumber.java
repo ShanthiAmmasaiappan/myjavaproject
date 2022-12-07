@@ -2,25 +2,40 @@
 
 package interviewjavaquestion;
 
+import java.util.Scanner;
+
 public class ArmstrongNumber {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int number = 371, originalNumber, remainder, result = 0;
 
-		originalNumber = number;
+		Scanner sc = new Scanner(System.in);
+
+		int originalNumber, number, reminder, numberOfDigit = 0;
+		double result = 0.0;
+		
+		System.out.println("Enter the integer number");
+		int enteredNumber = sc.nextInt();
+
+		number = originalNumber = enteredNumber;
 
 		while (originalNumber != 0) {
-			remainder = originalNumber % 10;
-			result += Math.pow(remainder, 3);
 			originalNumber /= 10;
+			++numberOfDigit;
 		}
 
-		if (result == number)
-			System.out.println(number + " is an Armstrong number.");
-		else
-			System.out.println(number + " is not an Armstrong number.");
+		while (number != 0) {
+			reminder = number % 10;
+			result += Math.pow(reminder, numberOfDigit);
+			number /= 10;
+		}
 
+		if ((int) result == enteredNumber) {
+			System.out.println("\n" + enteredNumber + " is an Armstrong number.");
+		} else {
+			System.out.println("\n" + enteredNumber + " is not an Armstrong number.");
+		}
+
+		sc.close();
 	}
 
 }

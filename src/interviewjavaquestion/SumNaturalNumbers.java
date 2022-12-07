@@ -9,7 +9,7 @@ public class SumNaturalNumbers {
 		while(i <= num)  
 		{
 			sum = sum + i;
-			i++;
+			++i;
 		}
 		System.out.println("Sum of First 100 Natural Numbers is = " + sum); 
 	}

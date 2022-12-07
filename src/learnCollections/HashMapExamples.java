@@ -57,7 +57,7 @@ public class HashMapExamples {
 		isPresent.put("Kuldeep", true);
 		isPresent.put("Jattan", false);
 
-		ListIterator<Employee> iterator = mechanical.listIterator();
+		ListIterator<Employee> iterator =  mechanical.listIterator();
 
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next().getEmployeeName());

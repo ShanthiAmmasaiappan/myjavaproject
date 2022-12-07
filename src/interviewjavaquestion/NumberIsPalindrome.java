@@ -5,14 +5,14 @@ public class NumberIsPalindrome {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int r, sum = 0, temp;
-		int n = 454;// It is the number variable to be checked for palindrome
+		int reminder, sum = 0, temp;
+		int number = 45254;// It is the number variable to be checked for palindrome
 
-		temp = n;
-		while (n > 0) {
-			r = n % 10; // getting remainder
-			sum = (sum * 10) + r;
-			n = n / 10;
+		temp = number;
+		while (number > 0) {
+			reminder = number % 10; // getting remainder
+			sum = (sum * 10) + reminder;
+			number = number / 10;
 		}
 		if (temp == sum)
 			System.out.println("palindrome number ");
